@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route, NavLink } from 'react-router-dom'
+import { Routes, Route, NavLink, Navigate } from 'react-router-dom'
 import { LazyPage1, LazyPage2, LazyPage3 } from '../pages';
 
 const LazyLayout = () => {
@@ -25,7 +25,7 @@ const LazyLayout = () => {
         <Route path='lazy2' element={ <LazyPage2 />} />
         <Route path='lazy3' element={<LazyPage3 />} />
         
-        <Route path='*' element={<h1> Page Not Found</h1>} />
+        <Route path='*' element={ <Navigate replace to="lazy1" />} />
       </Routes>
 
     </div>
