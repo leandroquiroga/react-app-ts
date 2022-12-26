@@ -1,30 +1,29 @@
 import { lazy } from 'react';
 import { Route } from '../interfaces/index';
+import NoLazy from '../components/NoLazy';
 // import {LazyPage1 ,LazyPage2, LazyPage3 } from '../01-Lazyload/pages';
 
 
 // Creamos componentes lazy
-const Lazy1 = lazy(() => import( /* webpackChunkName: "LazyPage1"*/'../01-Lazyload/pages/LazyPage1'));
-const Lazy2 = lazy(() => import( /* webpackChunkName: "LazyPage2"*/'../01-Lazyload/pages/LazyPage2'));
-const Lazy3 = lazy(() => import( /* webpackChunkName: "LazyPage3"*/'../01-Lazyload/pages/LazyPage3'));
+const LazyLayout = lazy(() => import(/* webpackChunkName: "LazyLayout" */ '../01-Lazyload/layout/LazyLayout'));
 
 export const routes: Route[] = [
   {
-    to: '/lazy1',
-    path: 'lazy1',
-    Component: Lazy1,
-    name: 'Lazy 1'
+    path: '/lazylayout/*',
+    to: '/lazylayout/',
+    Component: LazyLayout,
+    name: 'Lazy Layout'
   },
   {
-    to: '/lazy2',
-    path: 'lazy2',
-    Component: Lazy2,
-    name: 'Lazy 2'
+    to: '/nolazy',
+    path: 'nolazy',
+    Component: NoLazy,
+    name: 'No Lazy Layout'
   },
-  {
-    to: '/lazy3',
-    path: 'lazy3',
-    Component: Lazy3,
-    name: 'Lazy 3'
-  },
+
 ];
+
+/*
+  Cada vez que querramos usar lazy  y queremos añadir rutas hijas debemos colocar el comodin luego 
+  del path /user/* y todo lo que venga luego del path va a pertenece a user en este ejemplo
+*/
