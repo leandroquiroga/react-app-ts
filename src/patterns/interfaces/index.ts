@@ -1,8 +1,7 @@
-import { ReactElement } from "react";
+import { Children, ReactElement } from "react";
 
 /*
   * React Element nos permite que podamos añadir elemento del DOM pero en objetos ya que su creacion  bajo costo
- 
   * Podemos defenir las properties para poder especificar que es lo que recibe un componente 
 */
 
@@ -27,3 +26,10 @@ export interface ProductsButtonsProps {
   handleCounter: (value: number) => void;
   counter: number;
 };
+
+export interface ProductCardHOCrops {
+  ({ children, product }: Props): JSX.Element;
+  Title: ({ title }: { title?: string }) => JSX.Element;
+  Image: ({ img }: { img?: string }) => JSX.Element;
+  Button: () => JSX.Element;
+}

@@ -1,4 +1,10 @@
-import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components/ProductCard';
+
+import { ProductButtons, ProductCard, ProductImage, ProductTitle} from '../components'
+// import { ProductButtons } from "../components/ProductButtons";
+// import { ProductCard } from "../components/ProductCard";
+// import { ProductImage } from "../components/ProductImage";
+// import { ProductTitle } from "../components/ProductTitle";
+// import ProductCard from '../components';
 
 const product = {
   id: '1',
@@ -6,9 +12,11 @@ const product = {
   image: './coffee-mug.png'
 }
 
-
 export const ShoppingPage = () => {
-
+  /* 
+    * Cada componente hijo hacer referencia directa al componente padre
+    * a este patron se lo conoce como Compund Component
+  */  
   return (
     <div className='main-layout-pages '>
       <h1>Shopping - Store</h1>
@@ -17,10 +25,6 @@ export const ShoppingPage = () => {
         flexDirection: 'row',
         flexWrap: 'wrap'
       }}>
-        {/* 
-          Cada componente hijo hacer referencia directa al componente padre,
-          a este patron se lo conoce como Compund Component
-        */}
         <ProductCard product={product}>
             <ProductCard.Image />
             <ProductCard.Title title={ 'Coffe Cup' }/>
