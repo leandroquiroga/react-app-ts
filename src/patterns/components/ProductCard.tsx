@@ -5,7 +5,7 @@ import { Props } from "../interfaces";
 
 import styles from "../styles/styles.module.css";
 
-export const ProductCard = ({ children, product }: Props) => {
+export const ProductCard = ({ children, product, className, customStyles }: Props) => {
  
   const { counterProduct, handleCounterProducts } = useProduct();
 
@@ -13,9 +13,12 @@ export const ProductCard = ({ children, product }: Props) => {
     <Provider value={{
       handleCounterProducts,
       counterProduct,
-      product
+      product,
     }}>
-      <div className={styles.productCard}>
+      <div
+        className={`${styles.productCard} ${className}`}
+        style={customStyles}
+      >
         {children}
       </div>  
     </Provider>

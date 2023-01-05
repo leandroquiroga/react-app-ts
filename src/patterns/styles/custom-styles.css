@@ -1,0 +1,18 @@
+
+.bg-dark{
+  background-color: #202020ad;
+}
+.text-white{
+  color: #FFF;
+}
+.custom-image{
+  padding: 10px;
+  width: calc(100% - 20px);
+  border-radius: 20px;
+}
+.custom-btn button,
+.countLabel div {
+  color: #FFF;
+  border-color: #FFF;
+  border: 1px solid #FFF;
+}
