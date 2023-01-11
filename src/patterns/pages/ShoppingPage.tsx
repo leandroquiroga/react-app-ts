@@ -1,5 +1,7 @@
+import { useState } from 'react';
 
 import { ProductButtons, ProductCard, ProductImage, ProductTitle } from '../components';
+import { Product, ShoppingCart } from '../interfaces';
 import '../styles/custom-styles.css';
 // import { ProductButtons } from "../components/ProductButtons";
 // import { ProductCard } from "../components/ProductCard";
@@ -10,15 +12,35 @@ import '../styles/custom-styles.css';
 
 const product = {
   id: '1',
-  title: 'Coffe',
+  title: 'Coffe - Card',
   image: './coffee-mug.png'
+};
+
+const product2 = {
+  id: '2',
+  title: 'Coffe - Meme',
+  image: './coffee-mug2.png'
 }
 
+
+const products: Product[] = [product, product2];
+
+
 export const ShoppingPage = () => {
+
+
   /* 
-    * Cada componente hijo hacer referencia directa al componente padre
-    * a este patron se lo conoce como Compund Component
-  */  
+    * Control props nos permite poder controlar los estados de varios componentes
+    * en donde se un componente nos permite conocer su estado de elevacion
+  */
+
+  const [shoppingCart, setShoppingCart] = useState<{ [key: string]: ShoppingCart }>({
+    '1': {...product, counter: 10}
+  });
+
+  const onProductCounterChange = () => {
+    console.log('Cambiando...');
+  }
   return (
     <div className='main-layout-pages'>
       <h1>Shopping - Store</h1>
@@ -27,48 +49,40 @@ export const ShoppingPage = () => {
         flexDirection: 'row',
         flexWrap: 'wrap'
       }}>
-        <ProductCard product={product}>
-          <ProductCard.Image className='custom-image' />
-          <ProductCard.Title title={'Coffe Cup'} />
-          <ProductCard.Button />
-        </ProductCard>
         
-        <ProductCard
-          product={product}
-          className='bg-dark'
-        >
-          <ProductImage className='custom-image' />
-          <ProductTitle
-            className='text-white'/>
-          <ProductButtons className='custom-btn countLabel' />
-        </ProductCard>
-        
-        <ProductCard
-          product={product}
-          customStyles={{
-            backgroundColor: '#A324AE'
-          }}
-        >
-          <ProductImage
-            customStyles={{
-              boxShadow: '10px, 10px, 10px, rgba(0,0,0,0.2)'
-            }} />
-          <ProductTitle
-            className='text-white'
-            customStyles={{
-              display: 'flex',
-              justifyContent: 'center',
-              fontWeight: 'bold'
-            }}
-          />
-          <ProductButtons
-            className='custom-btn countLabel'
-            customStyles={{
-              display: 'flex',
-              justifyContent: 'end'
-            }}
-          />
-        </ProductCard>
+        {
+          products.map(prod => (
+            <ProductCard
+              key={prod.id}
+              product={prod}
+              className='bg-dark'
+              onChange={ () => onProductCounterChange()}
+            >
+              <ProductImage className='custom-image' />
+              <ProductTitle className='text-white'/>
+              <ProductButtons className='custom-btn countLabel' />
+            </ProductCard>
+          ))
+        }
+      </div>
+
+      <div className='shopping-cart'>
+          <ProductCard
+              // key={prod.id}
+              product={product2}
+              className='bg-dark'
+              customStyles={{
+                width: '150px',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <ProductImage className='custom-image' />
+              <ProductTitle className='text-white'/>
+              <ProductButtons className='custom-btn countLabel' />
+            </ProductCard>
       </div>
     </div>
   )

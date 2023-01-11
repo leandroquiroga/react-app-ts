@@ -5,6 +5,10 @@ import { CSSProperties, ReactElement } from "react";
   * Podemos defenir las properties para poder especificar que es lo que recibe un componente 
 */
 
+export interface ShoppingCart extends Product{
+  counter: number;
+};
+
 export interface ProductContextProps {
   handleCounterProducts: (value: number) => void;
   counterProduct: number
@@ -17,6 +21,7 @@ export interface Props {
   children?: ReactElement | ReactElement[];
   className?: string;
   customStyles?: CSSProperties
+  onChange?: () => void;
 };
 
 export interface Product {
@@ -55,4 +60,4 @@ export interface ProductImageProps {
 export interface ButtonStylesProps { 
   customStyles?: CSSProperties ;
   className?: string;
-}
+};
