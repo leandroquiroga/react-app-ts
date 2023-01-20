@@ -1,10 +1,28 @@
 import { CSSProperties, ReactElement } from "react";
-
 /*
   * React Element nos permite que podamos añadir elemento del DOM pero en objetos ya que su creacion  bajo costo
   * Podemos defenir las properties para poder especificar que es lo que recibe un componente 
 */
 
+export interface Props {
+  product: Product;
+  children?: ReactElement | ReactElement[];
+  className?: string;
+  customStyles?: CSSProperties
+  onChange?: (args: OnChangeArgs) => void;
+  value?: number;
+};
+
+export interface UseProductArgs{
+  product: Product;
+  onChange?: (args: OnChangeArgs) => void;
+  value?: number
+}
+
+export interface OnChangeArgs {
+  product: Product;
+  counter: number
+}
 export interface ShoppingCart extends Product{
   counter: number;
 };
@@ -13,17 +31,8 @@ export interface ProductContextProps {
   handleCounterProducts: (value: number) => void;
   counterProduct: number
   product?: Product;
-  className?: string
-};
-
-export interface Props {
-  product?: Product;
-  children?: ReactElement | ReactElement[];
   className?: string;
-  customStyles?: CSSProperties
-  onChange?: () => void;
 };
-
 export interface Product {
   id: string;
   title: string;

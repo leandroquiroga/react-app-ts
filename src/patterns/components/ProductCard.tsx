@@ -5,9 +5,9 @@ import { Props } from "../interfaces";
 
 import styles from "../styles/styles.module.css";
 
-export const ProductCard = ({ children, product, className, customStyles, onChange }: Props) => {
+export const ProductCard = ({ children, product, className, customStyles, onChange, value}: Props) => {
  
-  const { counterProduct, handleCounterProducts } = useProduct( onChange );
+  const { counterProduct, handleCounterProducts } = useProduct({ onChange, product, value });
 
   return (
     <Provider value={{
