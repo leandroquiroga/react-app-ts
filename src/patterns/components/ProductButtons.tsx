@@ -7,7 +7,7 @@ import { ButtonStylesProps } from "../interfaces";
 // import { StylesProps } from "../interfaces";
 // import { styles, stylesComponent } from './Styles';
 
-export const ProductButtons = ( { className, customStyles}: ButtonStylesProps )  => {
+export const ProductButtons = ( { className, customStyles }: ButtonStylesProps )  => {
 
   /*
    * Utilizando el useContext que reciba el ProductContext nos garantizamos de 
@@ -15,7 +15,6 @@ export const ProductButtons = ( { className, customStyles}: ButtonStylesProps ) 
    * en este caso el contexto es ProductContext
   */
   const {counterProduct, handleCounterProducts} = useContext(ProductContext);
-  
   return (
     <div
       className={`${styles.buttonsContainer} ${className}`}
