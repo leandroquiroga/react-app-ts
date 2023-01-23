@@ -10,7 +10,7 @@ import { ProductTitleProps } from '../interfaces/index';
   * para detallar el tipo de dato de cada props
 */
 
-export const ProductTitle = ({ title, className, customStyles }: ProductTitleProps) => {
+export const ProductTitle = ({ title, className, customStyles }: ProductTitleProps): JSX.Element => {
   const { product } = useContext(ProductContext);
 
   return (

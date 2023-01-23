@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { UseProductArgs } from '../interfaces';
+import { UseProductArgs, UseProductHook } from '../interfaces';
 
-export const useProduct = ({ onChange, product, value = 0} : UseProductArgs) => {
+export const useProduct = ({ onChange, product, value = 0 } : UseProductArgs): UseProductHook => {
   const [counterProduct, setCounterProduct] = useState(value);
   /*
     * Usamos el useRef para que no tengamos que redibujar los componentes, en caso de que cambie

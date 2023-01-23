@@ -9,7 +9,7 @@ import {
 import logo from '../logo.svg';
 import { ShoppingPage } from '../patterns/pages/ShoppingPage';
 
-export const Navigation = () => {
+export const Navigation = (): JSX.Element => {
   return (
     <BrowserRouter>
       <div className='main-layout'>

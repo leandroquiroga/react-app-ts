@@ -5,7 +5,7 @@ import { Props } from "../interfaces";
 
 import styles from "../styles/styles.module.css";
 
-export const ProductCard = ({ children, product, className, customStyles, onChange, value}: Props) => {
+export const ProductCard = ({ children, product, className, customStyles, onChange, value }: Props): JSX.Element => {
  
   const { counterProduct, handleCounterProducts } = useProduct({ onChange, product, value });
 

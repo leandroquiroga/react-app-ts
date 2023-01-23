@@ -7,7 +7,7 @@ import { ButtonStylesProps } from "../interfaces";
 // import { StylesProps } from "../interfaces";
 // import { styles, stylesComponent } from './Styles';
 
-export const ProductButtons = ( { className, customStyles }: ButtonStylesProps )  => {
+export const ProductButtons = ( { className, customStyles }: ButtonStylesProps ): JSX.Element  => {
 
   /*
    * Utilizando el useContext que reciba el ProductContext nos garantizamos de 

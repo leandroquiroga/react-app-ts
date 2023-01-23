@@ -5,7 +5,7 @@ import { ProductImageProps } from '../interfaces/index';
 import logoNoImage from "../assets/no-image.jpg";
 import styles from "../styles/styles.module.css";
 
-export const ProductImage = ({ img = "", className, customStyles }: ProductImageProps) => {
+export const ProductImage = ({ img = "", className, customStyles }: ProductImageProps): JSX.Element => {
 
   const { product } = useContext(ProductContext);
   let imgToShow: string;

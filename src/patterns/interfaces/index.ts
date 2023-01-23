@@ -13,6 +13,13 @@ export interface Props {
   value?: number;
 };
 
+export interface UseShoppingCartHook {
+  shoppingCart: {
+    [key: string]: ShoppingCart;
+  };
+  products: Product[];
+  onProductCounterChange: ({ counter, product }: OnChangeArgs) => void;
+}
 export interface UseProductArgs{
   product: Product;
   onChange?: (args: OnChangeArgs) => void;
@@ -54,6 +61,10 @@ export interface ProductCardHOCrops {
   Button: (Props: ButtonStylesProps)=> JSX.Element;
 };
 
+export interface UseProductHook {
+  counterProduct: number;
+  handleCounterProducts: (value: number) => void;
+};
 export interface ProductTitleProps { 
   customStyles?: CSSProperties ;
   title?: string;

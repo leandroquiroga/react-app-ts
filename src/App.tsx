@@ -1,6 +1,6 @@
 import { Navigation } from "./router/Navigation";
 
-export const App = () => {
+export const App = (): JSX.Element => {
   return (
     <>
       <Navigation />
