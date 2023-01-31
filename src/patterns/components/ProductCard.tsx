@@ -5,9 +5,9 @@ import { Props } from "../interfaces";
 
 import styles from "../styles/styles.module.css";
 
-export const ProductCard = ({ children, product, className, customStyles, onChange, value }: Props): JSX.Element => {
+export const ProductCard = ({ children, product, className, customStyles, onChange, value, initialValue }: Props): JSX.Element => {
  
-  const { counterProduct, handleCounterProducts } = useProduct({ onChange, product, value });
+  const { counterProduct, handleCounterProducts } = useProduct({ onChange, product, value, initialValue });
 
   return (
     <Provider value={{
@@ -24,13 +24,3 @@ export const ProductCard = ({ children, product, className, customStyles, onChan
     </Provider>
   );
 };
-
-
-/*
- * Podemos añadirle al componente nuevas propiedades 
- * Estas propiedades deben apuntar a dichos componentes
-*/
-
-// ProductCard.Title   = ProductTitle;
-// ProductCard.Image   = ProductImage;
-// ProductCard.Button  = ProductButtons

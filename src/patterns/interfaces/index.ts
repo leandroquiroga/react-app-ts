@@ -11,8 +11,13 @@ export interface Props {
   customStyles?: CSSProperties
   onChange?: (args: OnChangeArgs) => void;
   value?: number;
+  initialValue?: InitialValueProps;
 };
 
+export interface InitialValueProps {
+  count?: number,
+  maxCount?: number,
+}
 export interface UseShoppingCartHook {
   shoppingCart: {
     [key: string]: ShoppingCart;
@@ -23,7 +28,8 @@ export interface UseShoppingCartHook {
 export interface UseProductArgs{
   product: Product;
   onChange?: (args: OnChangeArgs) => void;
-  value?: number
+  value?: number,
+  initialValue?: InitialValueProps,
 }
 
 export interface OnChangeArgs {
