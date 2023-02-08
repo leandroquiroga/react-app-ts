@@ -1,12 +1,13 @@
 import { CSSProperties, ReactElement } from "react";
 /*
   * React Element nos permite que podamos añadir elemento del DOM pero en objetos ya que su creacion  bajo costo
-  * Podemos defenir las properties para poder especificar que es lo que recibe un componente 
+  * Podemos defenir las properties para poder especificar que es lo que recibe un componente
 */
 
 export interface Props {
   product: Product;
-  children?: ReactElement | ReactElement[];
+  // children?: ReactElement | ReactElement[];
+  children: () => JSX.Element;
   className?: string;
   customStyles?: CSSProperties
   onChange?: (args: OnChangeArgs) => void;
@@ -42,7 +43,8 @@ export interface ShoppingCart extends Product{
 
 export interface ProductContextProps {
   handleCounterProducts: (value: number) => void;
-  counterProduct: number
+  counterProduct: number;
+  maxCount?: number;
   product?: Product;
   className?: string;
 };
@@ -57,8 +59,8 @@ export interface ProductsButtonsProps {
   counter: number;
 };
 /*
- * Podemos usar de dos manera los props, una es desectrucurando la props que se va a utilizar o 
- * directamente colocar la palabra reservada Props 
+ * Podemos usar de dos manera los props, una es desectrucurando la props que se va a utilizar o
+ * directamente colocar la palabra reservada Props
 */
 export interface ProductCardHOCrops {
   ({ children, product, customStyles }: Props): JSX.Element;
@@ -68,10 +70,12 @@ export interface ProductCardHOCrops {
 };
 
 export interface UseProductHook {
+  maxCount?: number;
   counterProduct: number;
   handleCounterProducts: (value: number) => void;
 };
-export interface ProductTitleProps { 
+
+export interface ProductTitleProps {
   customStyles?: CSSProperties ;
   title?: string;
   className?: string;
@@ -83,7 +87,7 @@ export interface ProductImageProps {
   className?: string
 };
 
-export interface ButtonStylesProps { 
+export interface ButtonStylesProps {
   customStyles?: CSSProperties ;
   className?: string;
 };

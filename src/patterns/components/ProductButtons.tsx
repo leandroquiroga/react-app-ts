@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { ProductContext } from "../context/ProductContext";
 // import { ProductButtonsProps } from '../interfaces/index';
 
@@ -14,7 +14,19 @@ export const ProductButtons = ( { className, customStyles }: ButtonStylesProps )
    * devuelva los valores del contexto segun el contexto que le hayamos pasado,
    * en este caso el contexto es ProductContext
   */
-  const {counterProduct, handleCounterProducts} = useContext(ProductContext);
+  
+  const { counterProduct, handleCounterProducts, maxCount } = useContext(ProductContext);
+  
+  // const isMaxReached = useCallback(() => {
+  //   if (counterProduct === maxCount) return true
+  //   return false;
+  // }, [counterProduct, maxCount]);
+
+  // Refactor del useCallback original
+  const isMaxReached = useCallback( 
+    () => !!maxCount && counterProduct === maxCount,
+    [counterProduct, maxCount]
+  )
   return (
     <div
       className={`${styles.buttonsContainer} ${className}`}
@@ -28,7 +40,7 @@ export const ProductButtons = ( { className, customStyles }: ButtonStylesProps )
       </button>
       <div className={`${styles.countLabel}`}> {counterProduct} </div>
       <button
-        className={`${styles.buttonAdd}`}
+        className={ `${styles.buttonAdd} ${isMaxReached() && styles.disable}` }
         onClick={() => handleCounterProducts(+1)}
       >
         +

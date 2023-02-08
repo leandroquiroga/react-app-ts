@@ -19,13 +19,19 @@ export const ShoppingPage = (): JSX.Element => {
         product={product}
         className='bg-dark'
         initialValue={{
-          count: 4,
+          count: 0,
           maxCount: 10,
         }}
-      >
-        <ProductImage className='custom-image' />
-        <ProductTitle className='text-white' />
-        <ProductButtons className='custom-btn countLabel' />
+      > 
+        { 
+          () => (
+            <>
+              <ProductImage className='custom-image' />
+              <ProductTitle className='text-white' />
+              <ProductButtons className='custom-btn countLabel' />
+            </>
+         )
+        }
       </ProductCard>
     </div>
   );
