@@ -22,7 +22,12 @@ export const useProduct = ({ onChange, product, value = 0, initialValue } : UseP
 
     setCounterProduct(newValue);
     onChange && onChange({ counter: newValue, product });
+  };
+
+  const reset = () => {
+    setCounterProduct(initialValue?.count || value);
   }
+
   /*
    * Se setea el nuevo valor cuando se detecta que ha cambiado  
   */
@@ -35,10 +40,12 @@ export const useProduct = ({ onChange, product, value = 0, initialValue } : UseP
   useEffect(() => {
     isMonted.current = false
   });
-  
+
   return {
     counterProduct, 
+    isMaxCountReached: !!initialValue?.count && initialValue.maxCount === counterProduct, // Verificar porque retorna false aunque cumpla la condicion
+    maxCount: initialValue?.maxCount,
     handleCounterProducts,
-    maxCount: initialValue?.maxCount
+    reset,
   };
 }

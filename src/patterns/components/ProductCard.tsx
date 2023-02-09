@@ -7,8 +7,10 @@ import styles from "../styles/styles.module.css";
 
 export const ProductCard = ({ children, product, className, customStyles, onChange, value, initialValue }: Props): JSX.Element => {
  
-  const { counterProduct, handleCounterProducts, maxCount } = useProduct({ onChange, product, value, initialValue });
+  const { counterProduct, handleCounterProducts, maxCount, isMaxCountReached, reset } = useProduct({ onChange, product, value, initialValue });
 
+  console.log(isMaxCountReached);
+  
   return (
     <Provider value={{
       handleCounterProducts,
@@ -20,7 +22,16 @@ export const ProductCard = ({ children, product, className, customStyles, onChan
         className={`${styles.productCard} ${className}`}
         style={customStyles}
       >
-        { children() }
+        {
+          children({
+            count: counterProduct,
+            isMaxCountReached, 
+            maxCount: initialValue?.maxCount,
+            product,
+            handleCounterProducts,
+            reset
+          })
+        }
       </div>  
     </Provider>
   );

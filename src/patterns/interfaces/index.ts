@@ -1,4 +1,4 @@
-import { CSSProperties, ReactElement } from "react";
+import { CSSProperties } from "react";
 /*
   * React Element nos permite que podamos añadir elemento del DOM pero en objetos ya que su creacion  bajo costo
   * Podemos defenir las properties para poder especificar que es lo que recibe un componente
@@ -7,7 +7,7 @@ import { CSSProperties, ReactElement } from "react";
 export interface Props {
   product: Product;
   // children?: ReactElement | ReactElement[];
-  children: () => JSX.Element;
+  children: (arg: ProductCardHandlers) => JSX.Element;
   className?: string;
   customStyles?: CSSProperties
   onChange?: (args: OnChangeArgs) => void;
@@ -71,7 +71,9 @@ export interface ProductCardHOCrops {
 
 export interface UseProductHook {
   maxCount?: number;
+  isMaxCountReached: boolean;
   counterProduct: number;
+  reset: () => void;
   handleCounterProducts: (value: number) => void;
 };
 
@@ -91,3 +93,13 @@ export interface ButtonStylesProps {
   customStyles?: CSSProperties ;
   className?: string;
 };
+
+export interface ProductCardHandlers {
+  count: number;
+  isMaxCountReached: boolean;
+  maxCount?: number;
+  product: Product;
+
+  handleCounterProducts: (value: number) => void;
+  reset: () => void;
+}

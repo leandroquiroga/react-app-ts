@@ -24,11 +24,14 @@ export const ShoppingPage = (): JSX.Element => {
         }}
       > 
         { 
-          () => (
+          (args) => (
             <>
               <ProductImage className='custom-image' />
               <ProductTitle className='text-white' />
               <ProductButtons className='custom-btn countLabel' />
+              {/* <button onClick={reset}> Reset </button> */}
+
+              {JSON.stringify(args, null, 3)}
             </>
          )
         }
