@@ -24,14 +24,21 @@ export const ShoppingPage = (): JSX.Element => {
         }}
       > 
         { 
-          (args) => (
+          ({reset, isMaxCountReached, maxCount, handleCounterProducts, count}) => (
             <>
               <ProductImage className='custom-image' />
               <ProductTitle className='text-white' />
               <ProductButtons className='custom-btn countLabel' />
-              {/* <button onClick={reset}> Reset </button> */}
 
-              {JSON.stringify(args, null, 3)}
+              <button onClick={reset}> Resetear </button>
+              <button onClick={() => handleCounterProducts(-2)}> -2 </button>
+              {
+                ( !isMaxCountReached && <button onClick={() => handleCounterProducts(+2)}> +2 </button>)
+
+              }
+              <hr/>
+              <span className='text-white'> Count: {count} </span>
+              <span className='text-white'> Maximo: {maxCount} </span>
             </>
          )
         }
