@@ -4,7 +4,6 @@ import { useForm } from "../hooks/useForm";
 import "../styles/styles.css";
 import { valueRegisterData } from "../helpers";
 import { ValueForm } from "../interfaces/interfaces";
-import { spawn } from "child_process";
 
 export const RegisterPage = () => {
   const {
