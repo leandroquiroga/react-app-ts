@@ -10,4 +10,6 @@ export interface InitialValue {
   firstName: string;
   lastName: string;
   email: string;
+  terms?: boolean
+  jobTypes?: string;
 }

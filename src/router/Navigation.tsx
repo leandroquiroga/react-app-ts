@@ -11,47 +11,85 @@ import { FormikPage } from '../forms/pages/FormikPage';
 import { FormikYupPage } from '../forms/pages/FormikYupPage';
 
 import logo from '../logo.svg';
+import { FormikComponents } from '../forms/pages/FormikComponents';
 
 export const Navigation = () => {
   return (
     <BrowserRouter>
-      <div className='main-layout'>
-        
+      <div className="main-layout">
         <nav>
-          <img src={logo} alt="logo"/>
+          <img src={logo} alt="logo" />
 
           <ul>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/">Home</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/about">About</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/about"
+              >
+                About
+              </NavLink>
             </li>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/users">Users</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/users"
+              >
+                Users
+              </NavLink>
             </li>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/singup">Register</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/singup"
+              >
+                Register
+              </NavLink>
             </li>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/formik-basic">Formik Basic</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/formik-basic"
+              >
+                Formik Basic
+              </NavLink>
             </li>
             <li>
-              <NavLink className={ ({isActive}) => isActive ? 'nav-active' : ''} to="/formik-yup">Formik Yup</NavLink>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/formik-yup"
+              >
+                Formik Yup
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+                to="/formik-componets"
+              >
+                Formik Componets
+              </NavLink>
             </li>
           </ul>
-
         </nav>
 
         <Routes>
-          <Route path='/' element={<h1> Home Page</h1>}/>
-          <Route path='about' element={<h1> About Page</h1>}/>
-          <Route path='users' element={<h1> Users Page</h1>}/>
-          <Route path='singup' element={<RegisterPage />}/>
-          <Route path='formik-basic' element={<FormikPage />}/>
-          <Route path='formik-yup' element={<FormikYupPage />}/>
-          
-          <Route path='/*' element={<Navigate to='/home' replace />} />
+          <Route path="/" element={<h1> Home Page</h1>} />
+          <Route path="about" element={<h1> About Page</h1>} />
+          <Route path="users" element={<h1> Users Page</h1>} />
+          <Route path="singup" element={<RegisterPage />} />
+          <Route path="formik-basic" element={<FormikPage />} />
+          <Route path="formik-yup" element={<FormikYupPage />} />
+          <Route path="formik-componets" element={<FormikComponents />} />
+
+          <Route path="/*" element={<Navigate to="/home" replace />} />
         </Routes>
       </div>
     </BrowserRouter>
