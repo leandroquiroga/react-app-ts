@@ -13,3 +13,19 @@ export interface InitialValue {
   terms?: boolean
   jobTypes?: string;
 }
+
+export interface TextInputProps {
+  label: string;
+  name: string;
+  type?: 'text' | 'email' | 'password' | 'number';
+  placeholder?: string;
+  //Comodin
+  [x: string]: any;
+}
+
+export interface SelectInputProps{
+  label: string;
+  name: string; 
+  as: string;
+  [x: string]: any;
+}
