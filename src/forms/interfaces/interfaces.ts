@@ -40,3 +40,6 @@ export interface ButtonsProps {
   value?: string;
   styles?: string;
 }
+export interface OptionsProps {
+  arrayOptions?: string[];
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "type": "text",
+    "name": "firsName",
+    "placeholder": "Ingrese su nombre",
+    "label": "First Name",
+    "value": ""
+  },
+  {
+    "type": "text",
+    "name": "lastName",
+    "placeholder": "Ingrese su apellido",
+    "label": "Last Name",
+    "value": ""
+  },
+  {
+    "type": "email",
+    "name": "email",
+    "placeholder": "Ingrese su email",
+    "label": "Email",
+    "value": ""
+  },
+  {
+    "type": "password",
+    "name": "password1",
+    "placeholder": "Ingrese su contraseña",
+    "label": "Contraseña",
+    "value": ""
+  },
+  {
+    "type": "password",
+    "name": "password2",
+    "placeholder": "Repita su contraseña",
+    "label": "Repita su contraseña",
+    "value": ""
+  },
+  {
+    "type": "select",
+    "label": "Rol Type",
+    "name": "rolTypes",
+    "as": "select",
+    "options": ["","Invited", "User", "Administrator"]
+  }
+]
