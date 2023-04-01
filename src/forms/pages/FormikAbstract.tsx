@@ -1,16 +1,18 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 
-import "../styles/styles.css";
 import { validationErrorSchema } from "../helpers";
 import { valueFormWithYup } from "../helpers/index";
 import { TextInput } from "../components/TextInput";
 import { SelectInput } from "../components/SelectInput";
+import { CheckInput } from "../components/CheckInput";
+
+import "../styles/styles.css";
 
 export const FormikAbstract = () => {
   return (
     <div>
-      <h1> Formik Abstract</h1>
+      <h1> Formik Abstract </h1>
 
       <Formik
         initialValues={valueFormWithYup}
@@ -46,11 +48,7 @@ export const FormikAbstract = () => {
               <option value="tech-lead">Teach Lead</option>
             </SelectInput>
 
-            <label>
-              <Field name="terms" type="checkbox" />
-              Terminos y Condiciones
-            </label>
-            <ErrorMessage name="terms" component="span" />
+            <CheckInput label="Terminos y Condiciones" name="terms" />
 
             <button type="submit">Send</button>
             <button type="reset" onClick={formik.handleReset}>

@@ -29,3 +29,8 @@ export interface SelectInputProps{
   as: string;
   [x: string]: any;
 }
+export interface CheckInputProps {
+  label: string;
+  name: string;
+  [x: string]: any;
+}
