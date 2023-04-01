@@ -34,3 +34,9 @@ export interface CheckInputProps {
   name: string;
   [x: string]: any;
 }
+
+export interface ButtonsProps {
+  type: "submit" | "reset" | "button";
+  value?: string;
+  styles?: string;
+}
