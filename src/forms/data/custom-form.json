@@ -4,41 +4,92 @@
     "name": "firsName",
     "placeholder": "Ingrese su nombre",
     "label": "First Name",
-    "value": ""
+    "value": "",
+    "valiations": [
+      {
+        "type": "required",
+        "message": "El nombre es obligatorio"
+      },
+      {
+        "type": "minLength",
+        "value": 2,
+        "message": "Debe tener un longitud mayor o igual a 2"
+      },
+      {
+        "type": "maxLength",
+        "value": 15,
+        "message": "Debe tener un longitud menor o igual a 15"
+      }
+    ]
   },
   {
     "type": "text",
     "name": "lastName",
     "placeholder": "Ingrese su apellido",
     "label": "Last Name",
-    "value": ""
+    "value": "",
+    "valiations": [
+      {
+        "type": "required",
+        "message": "El apellido es obligatorio"
+      }
+    ]
   },
   {
     "type": "email",
     "name": "email",
     "placeholder": "Ingrese su email",
     "label": "Email",
-    "value": ""
+    "value": "",
+    "valiations": [
+      {
+        "type": "required",
+        "message": "El email es obligatorio"
+      }
+    ]
   },
   {
     "type": "password",
     "name": "password1",
     "placeholder": "Ingrese su contraseña",
     "label": "Contraseña",
-    "value": ""
+    "value": "",
+    "valiations": [
+      {
+        "type": "required",
+        "message": "La contraseña es obligatorio"
+      }
+    ]
   },
   {
     "type": "password",
     "name": "password2",
     "placeholder": "Repita su contraseña",
     "label": "Repita su contraseña",
-    "value": ""
+    "value": "",
+    "valiations": [
+      {
+        "type": "required",
+        "message": "Confirme su contraseña"
+      }
+    ]
   },
   {
     "type": "select",
     "label": "Rol Type",
     "name": "rolTypes",
     "as": "select",
-    "options": ["","Invited", "User", "Administrator"]
+    "options": [
+      "",
+      "Invited",
+      "User",
+      "Administrator"
+    ],
+    "valiations": [
+      {
+        "type": "required",
+        "message": "El rol es obligatorio"
+      }
+    ]
   }
 ]

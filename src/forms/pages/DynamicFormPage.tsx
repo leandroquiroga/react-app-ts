@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Formik } from "formik";
+import * as Yup from "yup";
 
 import fieldForms from "../data/custom-form.json";
 import { Button } from "../components/Button";
@@ -15,10 +16,35 @@ import { Options } from "../components/Options";
  * nuestro formulario dinamico
  */
 const initialValues: { [key: string]: any } = {};
+const ruleValidation: { [key: string]: any } = {};
 
-for (const { name, value } of fieldForms) {
+for (const { name, value, valiations } of fieldForms) {
+  // Capturamos nuestro valor inicial
   initialValues[name] = value;
+
+  // Validamos que no haya nada validaciones
+  if (!valiations) continue;
+
+  // Creamos un schema para cada uno de los campos
+  let schema = Yup.string();
+
+  // Iteramos por cada uno de los type que tenga las validaciones
+  for (const rule of valiations) {
+    if (rule.type === "required") {
+      schema = schema.required(rule.message);
+    }
+    if (rule.type === "minLength") {
+      schema = schema.min((rule as any).value, rule.message);
+    }
+    if (rule.type === "maxLength") {
+      schema = schema.max((rule as any).value, rule.message);
+    }
+  }
+
+  ruleValidation[name] = schema;
 }
+
+const validationShema = Yup.object({ ...ruleValidation });
 
 export const DynamicFormPage = () => {
   return (
@@ -28,6 +54,7 @@ export const DynamicFormPage = () => {
       <Formik
         initialValues={initialValues}
         onSubmit={(values) => console.log(values)}
+        validationSchema={validationShema}
       >
         {(formik) => (
           <Form noValidate>
